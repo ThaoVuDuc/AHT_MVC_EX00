@@ -1,5 +1,5 @@
 <h1>Create task</h1>
-<form method='post' action='/traningAHT/MVC/AHT_MVC_EX01/src/Webroot/tasks/create'>
+<form method='post' action='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/create'>
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" placeholder="Enter a title" name="title">

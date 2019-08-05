@@ -2,7 +2,7 @@
 <div class="row col-md-12 centered">
     <table class="table table-striped custab">
         <thead>
-        <a href="/traningAHT/MVC/AHT_MVC_EX01/src/Webroot/tasks/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new task</a>
+        <a href="/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new task</a>
         <tr>
             <th>ID</th>
             <th>Task</th>
@@ -17,7 +17,7 @@
             echo "<td>" . $task['id'] . "</td>";
             echo "<td>" . $task['title'] . "</td>";
             echo "<td>" . $task['description'] . "</td>";
-            echo "<td class='text-center'><a class='btn btn-info btn-xs' href='/traningAHT/MVC/AHT_MVC_EX01/src/Webroot/tasks/edit/" . $task["id"] . "' ><span class='glyphicon glyphicon-edit'></span> Edit</a> <a href='/traningAHT/MVC/AHT_MVC_EX01/src/Webroot/tasks/delete/" . $task["id"] . "' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
+            echo "<td class='text-center'><a class='btn btn-info btn-xs' href='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/edit/" . $task["id"] . "' ><span class='glyphicon glyphicon-edit'></span> Edit</a> <a href='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/delete/" . $task["id"] . "' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
             echo "</tr>";
         }
         ?>

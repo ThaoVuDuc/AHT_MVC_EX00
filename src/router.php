@@ -8,7 +8,7 @@ class Router
     {
         $url = trim($url);
 
-        if ($url == "/traningAHT/MVC/AHT_MVC_EX01/src/Webroot/")
+        if ($url == "/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/")
         {
             $request->controller = "tasks";
             $request->action = "index";
