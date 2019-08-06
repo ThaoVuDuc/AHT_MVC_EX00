@@ -15,6 +15,7 @@ class Dispatcher
         $controller = $this->loadController();
 
         call_user_func_array([$controller, $this->request->action], $this->request->params);
+        //gọi đến hàm với tên là $this->request->action cảu đối tượng $controller với tham số là $this->request->params
     }
 
     public function loadController()
