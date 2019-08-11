@@ -1,23 +1,23 @@
-<h1>Tasks</h1>
+<h1>Students</h1>
 <div class="row col-md-12 centered">
     <table class="table table-striped custab">
         <thead>
-        <a href="/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new task</a>
+        <a href="/traningAHT/MVC/MVC_Doctrine/src/Webroot/students/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new student</a>
         <tr>
             <th>ID</th>
-            <th>Task</th>
-            <th>Description</th>
+            <th>Name</th>
+            <th>Age</th>
             <th class="text-center">Action</th>
         </tr>
         </thead>
         <?php
-        foreach ($tasks as $task)
+        foreach ($students as $student)
         {
             echo '<tr>';
-            echo "<td>" . $task['id'] . "</td>";
-            echo "<td>" . $task['title'] . "</td>";
-            echo "<td>" . $task['description'] . "</td>";
-            echo "<td class='text-center'><a class='btn btn-info btn-xs' href='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/edit/" . $task["id"] . "' ><span class='glyphicon glyphicon-edit'></span> Edit</a> <a href='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/delete/" . $task["id"] . "' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
+            echo "<td>" . $student->getId() . "</td>";
+            echo "<td>" . $student->getName() . "</td>";
+            echo "<td>" . $student->getAge() . "</td>";
+            echo "<td class='text-center'><a class='btn btn-info btn-xs' href='/traningAHT/MVC/MVC_Doctrine/src/Webroot/students/edit/" . $student->getId() . "' ><span class='glyphicon glyphicon-edit'></span> Edit</a> <a href='/traningAHT/MVC/MVC_Doctrine/src/Webroot/students/delete/" . $student->getId() . "' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
             echo "</tr>";
         }
         ?>

@@ -1,13 +1,13 @@
-<h1>Create task</h1>
-<form method='post' action='/traningAHT/MVC/AHT_MVC_EX00/src/Webroot/tasks/create'>
+<h1>Create student</h1>
+<form method='post' action='/traningAHT/MVC/MVC_Doctrine/src/Webroot/students/create'>
     <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter a title" name="title">
+        <label for="title">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter a name" name="name">
     </div>
 
     <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" placeholder="Enter a description" name="description">
+        <label for="description">Age</label>
+        <input type="text" class="form-control" id="age" placeholder="Enter a age" name="age">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

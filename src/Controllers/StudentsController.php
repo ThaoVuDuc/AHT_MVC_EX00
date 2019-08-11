@@ -2,32 +2,39 @@
 namespace AHT\Controllers;
 
 use AHT\Core\Controller;
-use AHT\Models\Task;
+//use AHT\Models\Task;
 use AHT\Models\TaskRepository;
-class tasksController extends Controller
+use Student;
+
+
+class StudentsController extends Controller
 {
     function index()
     {
-        //require(ROOT . 'Models/Task.php');
+        require_once "../../bootstrap.php";
 
-        $tasks = new TaskRepository;
-        $d['tasks'] = $tasks->getAll();
+        $studentRepository = $entityManager->getRepository('Student');
+        $students = 
+        $d['students'] = $studentRepository->findAll();
         $this->set($d);
         $this->render("index");
     }
 
     function create()
     {
-        if (isset($_POST["title"]))
+        require_once "../../bootstrap.php";
+
+        if (isset($_POST["name"]))
         {
-            $taskRpt= new TaskRepository;
-            $task = new Task;
-            $task->setTitle($_POST['title']);
-            $task->setDescription($_POST['description']);
-            $task->setCreatedAt(date("Y-m-d H-i-s"));
-            $task->setUpdatedAt(date("Y-m-d H-i-s"));
-            $taskRpt->add($task);
-            header("Location: ". WEBROOT . "tasks/index");
+            $student = new Student;
+            $student->setName($_POST["name"]);
+            $student->setAge($_POST["age"]);
+
+            $entityManager->persist($student);
+            $entityManager->flush();
+            //$task->setCreatedAt(date("Y-m-d H-i-s"));
+            //$task->setUpdatedAt(date("Y-m-d H-i-s"));
+            header("Location: ". WEBROOT . "students/index");
         }
 
         $this->render("create");
@@ -36,19 +43,17 @@ class tasksController extends Controller
 
     function edit($id)
     {
-        //require(ROOT . 'Models/Task.php');
-        $taskRpt = new TaskRepository;
-        $d['task'] = $taskRpt->get($id);
-        if (isset($_POST["title"]))
+        require_once "../../bootstrap.php";
+
+        $student = $entityManager->find('Student', $id);;
+        $d["student"] = $student;
+        if (isset($_POST["name"]))
         {
-            $task = new Task;
-            $task->setID($id);
-            $task->setTitle($_POST['title']);
-            $task->setDescription($_POST['description']);
-            $task->setCreatedAt($d['task']['created_at']);
-            $task->setUpdatedAt(date('Y-m-d H-i-s'));
-            $taskRpt->edit($task);
-            header("Location: ". WEBROOT . "tasks/index");
+            $student->setName($_POST["name"]);
+            $student->setAge($_POST["age"]);
+
+            $entityManager->flush();
+            header("Location: ". WEBROOT . "students/index");
         }
         $this->set($d);
         $this->render("edit");
@@ -56,13 +61,19 @@ class tasksController extends Controller
 
     function delete($id)
     {
-        //require(ROOT . 'Models/Task.php');
+        require_once "../../bootstrap.php";
 
-        $task = new TaskRepository;
-        $task->delete($id);
-        header("Location: " . WEBROOT . "tasks/index");
+        $student = $entityManager->find('Student', $id);
+        if($student != null)
+        {
+            $entityManager->remove($student);
+            $entityManager->flush();
+        }
+        else
+        {
+            die("object 2 n'existe pas");
+        }
+        header("Location: " . WEBROOT . "students/index");
         
     }
 }
-
-?>
