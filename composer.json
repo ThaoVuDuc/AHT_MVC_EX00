@@ -4,7 +4,7 @@
         "symfony/yaml": "2.*"
     },
     "autoload": {
-        "psr-0": {"": "src/entities/"},
+        "psr-0": {"": "src/Entities/"},
         "psr-4": {"AHT\\": "src/"}
     }
 }
